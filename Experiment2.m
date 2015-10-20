@@ -93,7 +93,7 @@ for i =1:trials,
     int_marker = randi(3);
     experiment_type = experiment_options(int_marker);
     
-    if choice_allowed == 0,
+    if choice_allowed == 1,
         counter(int_marker) = counter(int_marker) +1;
         stair_case = int_marker;
     else
