@@ -189,8 +189,7 @@ for i =1:trials,
         %Queue response
         Screen('TextSize', window, 14);
         Screen('TextFont', window, 'Courier');
-        
-        choice_allowed = randi(2)-1;
+
         
         if choice_allowed==1,
             
