@@ -60,7 +60,7 @@ WaitSecs(5);
 
 
 %Set trial number
-trials =20;
+trials =250;
 %Set presentation time
 time = 0.2;
 %Set starting contrast
@@ -86,19 +86,20 @@ experiment_type_contrast = [image_contrast_initial, image_contrast_initial, imag
 
 counter = [0,0,0,0];
 for i =1:trials,
-    choice_allowed = randi(2)-1;
+    choice_allowed = -((randi(2)-1) * (randi(2)-1)-1);
     
     
         
-    int_marker = randi(3);
-    experiment_type = experiment_options(int_marker);
+    experiment_type_marker = randi(3);
+    experiment_type = experiment_options(experiment_type_marker);
     
-    if choice_allowed == 1,
-        counter(int_marker) = counter(int_marker) +1;
-        stair_case = int_marker;
-    else
-         counter(4) = counter(4) +1;
+    if choice_allowed == 0,
+           counter(4) = counter(4) +1;
         stair_case = 4;
+    else
+      
+        counter(experiment_type_marker) = counter(experiment_type_marker) +1;
+        stair_case = experiment_type_marker;
     end
     
     %Focus image
@@ -189,7 +190,6 @@ for i =1:trials,
         %Queue response
         Screen('TextSize', window, 14);
         Screen('TextFont', window, 'Courier');
-
         
         if choice_allowed==1,
             
