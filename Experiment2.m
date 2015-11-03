@@ -86,7 +86,7 @@ experiment_type_contrast = [image_contrast_initial, image_contrast_initial, imag
 
 counter = [0,0,0,0];
 for i =1:trials,
-    choice_allowed = -((randi(2)-1) * (randi(2)-1)-1);
+    choice_allowed = ((randi(2)-1) );
     
     
         
